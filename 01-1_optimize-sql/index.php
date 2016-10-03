@@ -8,9 +8,6 @@ if (mysqli_connect_errno()) {
 }
 
 //queries
-$result = mysql_query('SELECT article_id, quantity FROM quality_control_articles WHERE qc_id=720');
-
-//queries
 $result = mysqli_query($con,'SELECT article_id, quantity FROM quality_control_articles WHERE qc_id = 720');
 
 while ( $row = mysqli_fetch_array($result) ) {
@@ -28,16 +25,6 @@ while ( $row = mysqli_fetch_array($result) ) {
   ');
 }
 echo "The queries process is successful.";
-
-//If have data print out the result
-if ($result) {
-    // Fetch one and one row
-    while ($row=mysqli_fetch_row($result)) {
-        printf ("%s (%s)\n",$row[0],$row[1]);
-    }
-    // Free result set
-    mysqli_free_result($result);
-}
 
 // Close connection
 mysqli_close($con);
